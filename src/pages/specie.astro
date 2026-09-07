@@ -8,48 +8,98 @@ import penguins from "../assets/penguins.json";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Les espèces de pingouins</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      main {
+        padding: 30px;
+      }
+
+      /* Menu */
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10;
+      }
+
+      nav a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Slider horizontal */
+      .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+
+      /* Chaque graphique prend toute la largeur */
+      .graphique {
+        min-width: 100%;
+        scroll-snap-align: start;
+        padding: 30px 0;
+      }
+
+      .graphique h2 {
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
     <main>
       <h1>Les espèces de pingouins</h1>
 
-      <!-- Menu avec ancres -->
+      <!-- Menu -->
       <nav>
         <a href="#adelie">Adelie</a>
         <a href="#gentoo">Gentoo</a>
         <a href="#chinstrap">Chinstrap</a>
       </nav>
 
-      <!-- Graphique Adelie -->
-      <section id="adelie">
-        <h2>Adelie</h2>
+      <!-- Slider -->
+      <div class="slider">
 
-        <GraphicSpecies
-          penguins={penguins}
-          species="Adelie"
-        />
-      </section>
+        <section id="adelie" class="graphique">
+          <h2>Adelie</h2>
 
-      <!-- Graphique Gentoo -->
-      <section id="gentoo">
-        <h2>Gentoo</h2>
+          <GraphicSpecies
+            penguins={penguins}
+            species="Adelie"
+          />
+        </section>
 
-        <GraphicSpecies
-          penguins={penguins}
-          species="Gentoo"
-        />
-      </section>
+        <section id="gentoo" class="graphique">
+          <h2>Gentoo</h2>
 
-      <!-- Graphique Chinstrap -->
-      <section id="chinstrap">
-        <h2>Chinstrap</h2>
+          <GraphicSpecies
+            penguins={penguins}
+            species="Gentoo"
+          />
+        </section>
 
-        <GraphicSpecies
-          penguins={penguins}
-          species="Chinstrap"
-        />
-      </section>
+        <section id="chinstrap" class="graphique">
+          <h2>Chinstrap</h2>
+
+          <GraphicSpecies
+            penguins={penguins}
+            species="Chinstrap"
+          />
+        </section>
+
+      </div>
     </main>
   </body>
 </html>
