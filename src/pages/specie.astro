@@ -115,33 +115,30 @@ import penguins from "../assets/penguins.json";
 </html>
 
 <script>
-  const sections = document.querySelectorAll(".graphique");
-  const menuItems = document.querySelectorAll(".menu-item");
+  const items = document.querySelectorAll(".graphique");
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+
+        const menuItem = document.querySelector(
+          `.menu-item[href="#${id}"]`
+        );
+
         if (entry.isIntersecting) {
-          menuItems.forEach((item) => {
-            item.classList.remove("active");
-          });
-
-          const activeItem = document.querySelector(
-            `.menu-item[href="#${entry.target.id}"]`
-          );
-
-          if (activeItem) {
-            activeItem.classList.add("active");
-          }
+          menuItem?.classList.add("active");
+        } else {
+          menuItem?.classList.remove("active");
         }
       });
     },
     {
-      threshold: 0.5
+      threshold: 0.5,
     }
   );
 
-  sections.forEach((section) => {
-    observer.observe(section);
+  items.forEach((item) => {
+    observer.observe(item);
   });
 </script>
