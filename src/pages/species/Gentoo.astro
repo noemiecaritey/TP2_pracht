@@ -1,0 +1,51 @@
+---
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import penguins from "../../assets/penguins.json";
+
+const penguinsGentoo = penguins.filter(
+  ({ species }) => species === "Gentoo"
+);
+
+const plot = Plot.plot({
+  title: "Pingouins Gentoo",
+
+  x: {
+    label: "Longueur du bec (mm)"
+  },
+
+  y: {
+    label: "Longueur de la nageoire (mm)"
+  },
+
+  marks: [
+    Plot.dot(penguinsGentoo, {
+      x: "culmen_length_mm",
+      y: "flipper_length_mm"
+    })
+  ]
+});
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Gentoo</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/species/Adelie">Adelie</a>
+      <a href="/species/Gentoo">Gentoo</a>
+      <a href="/species/Chinstrap">Chinstrap</a>
+    </nav>
+
+    <main>
+      <h1>Les pingouins Gentoo</h1>
+
+      <PlotFigure {plot} />
+    </main>
+  </body>
+</html>
