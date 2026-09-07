@@ -1,0 +1,98 @@
+---
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Les espèces de pingouins</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 20px;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      nav a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        padding: 40px;
+      }
+
+      .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+
+      .graphique {
+        min-width: 100%;
+        scroll-snap-align: start;
+        padding: 40px 0;
+      }
+
+      .graphique h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="#adelie">Adelie</a>
+      <a href="#gentoo">Gentoo</a>
+      <a href="#chinstrap">Chinstrap</a>
+    </nav>
+
+    <main>
+      <h1>Les différentes espèces de pingouins</h1>
+
+      <div class="slider">
+        <section id="adelie" class="graphique">
+          <h2>Pingouins Adelie</h2>
+
+          <GraphicSpecies
+            species="Adelie"
+          />
+        </section>
+
+        <section id="gentoo" class="graphique">
+          <h2>Pingouins Gentoo</h2>
+
+          <GraphicSpecies
+            species="Gentoo"
+          />
+        </section>
+
+        <section id="chinstrap" class="graphique">
+          <h2>Pingouins Chinstrap</h2>
+
+          <GraphicSpecies
+            species="Chinstrap"
+          />
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
