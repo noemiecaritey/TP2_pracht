@@ -14,7 +14,15 @@ import penguins from "../assets/penguins.json";
     <main>
       <h1>Les espèces de pingouins</h1>
 
-      <section>
+      <!-- Menu avec ancres -->
+      <nav>
+        <a href="#adelie">Adelie</a>
+        <a href="#gentoo">Gentoo</a>
+        <a href="#chinstrap">Chinstrap</a>
+      </nav>
+
+      <!-- Graphique Adelie -->
+      <section id="adelie">
         <h2>Adelie</h2>
 
         <GraphicSpecies
@@ -23,7 +31,8 @@ import penguins from "../assets/penguins.json";
         />
       </section>
 
-      <section>
+      <!-- Graphique Gentoo -->
+      <section id="gentoo">
         <h2>Gentoo</h2>
 
         <GraphicSpecies
@@ -32,7 +41,8 @@ import penguins from "../assets/penguins.json";
         />
       </section>
 
-      <section>
+      <!-- Graphique Chinstrap -->
+      <section id="chinstrap">
         <h2>Chinstrap</h2>
 
         <GraphicSpecies
